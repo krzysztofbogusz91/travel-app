@@ -3,10 +3,12 @@ import { AppComponent } from "./app.component";
 import { CoreModule } from "./core/core.module";
 import { SharedModule } from "./shared/shared.module";
 import { DashboardModule } from "./dashboard/dashboard.module";
+import { HomeModule } from "./home/home.module";
+
 describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CoreModule, SharedModule, DashboardModule],
+      imports: [CoreModule, SharedModule, DashboardModule, HomeModule],
       declarations: [AppComponent]
     }).compileComponents();
   }));
