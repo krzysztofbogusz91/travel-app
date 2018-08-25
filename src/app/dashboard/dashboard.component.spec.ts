@@ -1,17 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { DashboardComponent } from './dashboard.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
+import { FormsModule } from "@angular/forms";
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
-describe('DashboardComponent', () => {
+import { DashboardComponent } from "./dashboard.component";
+import { DatePickerComponent } from "./date-picker/date-picker.component";
+
+describe("DashboardComponent", () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent, DatePickerComponent ]
-    })
-    .compileComponents();
+      imports: [FormsModule, BsDatepickerModule.forRoot()],
+      declarations: [DashboardComponent, DatePickerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,7 +23,7 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
