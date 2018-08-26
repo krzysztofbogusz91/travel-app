@@ -5,6 +5,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
 import { DashboardComponent } from "./dashboard.component";
 import { DatePickerComponent } from "./date-picker/date-picker.component";
+import { TripDateRange } from "../shared/models/TripDateRange";
 
 describe("DashboardComponent", () => {
   let component: DashboardComponent;
@@ -26,4 +27,17 @@ describe("DashboardComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  describe('onDatesChange', () => {
+    it('should have set component datesRange property', () => {
+      const mockDatesRange: TripDateRange = {
+        startDate: new Date(2018,11,17,3,24,0),
+        endDate: new Date(2018,12,17,3,24,0)
+      }
+
+      component.onDatesChange(mockDatesRange)
+      expect(component.datesRange).toEqual(mockDatesRange);
+    });
+  });
+
 });
