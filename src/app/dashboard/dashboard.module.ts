@@ -6,11 +6,13 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { DashboardComponent } from './dashboard.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     BsDatepickerModule.forRoot(), 
   ],
   declarations: [DashboardComponent, DatePickerComponent],
