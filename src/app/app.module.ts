@@ -30,6 +30,7 @@ const routes = [
     SharedModule,
     HomeModule
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
