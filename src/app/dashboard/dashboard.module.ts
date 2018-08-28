@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    BsDatepickerModule.forRoot(), 
+    BsDatepickerModule.forRoot()
   ],
   declarations: [DashboardComponent, DatePickerComponent],
   exports: [DashboardComponent]

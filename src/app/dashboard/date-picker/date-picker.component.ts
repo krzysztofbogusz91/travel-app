@@ -1,15 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
-import { TripDateRange } from "src/app/shared/models/TripDateRange";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { TripDateRange } from 'src/app/shared/models/TripDateRange';
 
 @Component({
-  selector: "app-date-picker",
-  templateUrl: "./date-picker.component.html",
-  styleUrls: ["./date-picker.component.css"]
+  selector: 'app-date-picker',
+  templateUrl: './date-picker.component.html',
+  styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent implements OnInit {
   bsConfig: Partial<BsDatepickerConfig>;
-  colorTheme = "theme-dark-blue";
+  colorTheme = 'theme-dark-blue';
   startDate = new Date();
   rangeDates: Date[];
   endDate = new Date();

@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onDatesChange($event): void{
+    console.log($event);
     this.datesRange = $event;
   }
 

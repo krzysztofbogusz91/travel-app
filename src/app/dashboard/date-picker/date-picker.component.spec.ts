@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatePickerComponent } from "./date-picker.component";
-import { FormsModule } from "node_modules/@angular/forms";
-import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { DatePickerComponent } from './date-picker.component';
+import { FormsModule } from 'node_modules/@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
-describe("DatePickerComponent", () => {
+describe('DatePickerComponent', () => {
   let component: DatePickerComponent;
   let fixture: ComponentFixture<DatePickerComponent>;
 
@@ -21,7 +21,7 @@ describe("DatePickerComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
