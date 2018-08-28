@@ -1,3 +1,5 @@
 <app-date-picker (rangeEmitter)="onDatesChange($event)"></app-date-picker>
 <p class="mt-4 text-center">view component</p>
- 
+<div *ngFor="let trip of (trips$ | async)">
+  {{trip.name}}
+</div>

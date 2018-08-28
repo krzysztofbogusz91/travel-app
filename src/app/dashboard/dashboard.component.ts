@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TripDateRange } from '../shared/models/TripDateRange';
+import { DashboardService } from 'src/app/dashboard/dashboard.service';
+import { Observable } from 'rxjs';
+
+import { Trip } from 'src/app/shared/models/Trip';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +14,15 @@ import { TripDateRange } from '../shared/models/TripDateRange';
 export class DashboardComponent implements OnInit {
 
   datesRange: TripDateRange;
+  trips$: Observable<Trip[]> = this.dashboardService.getTrips();
 
-  constructor() { }
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
   }
 
   onDatesChange($event): void{
-    this.datesRange = $event
+    this.datesRange = $event;
   }
 
 }
