@@ -1,3 +1,8 @@
-<p>
-  comunicate works!
-</p>
+<ng-container *ngIf="(state$ | async).state">
+  <div class="alert alert-primary w-25 text-center">
+    <div>
+      {{(state$ | async).message}} 
+      <button (click)="hide()" class="btn btn-primary">X</button>
+    </div>
+  </div>
+</ng-container>

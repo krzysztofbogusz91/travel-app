@@ -7,12 +7,14 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DashboardComponent } from './dashboard.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     BsDatepickerModule.forRoot()
   ],
   declarations: [DashboardComponent, DatePickerComponent],

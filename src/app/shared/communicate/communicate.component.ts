@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CommunicateState } from 'src/app/shared/models/CommunicateState.interface';
+import { CommunicateService } from 'src/app/shared/communicate.service';
 
 @Component({
   selector: 'app-communicate',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./communicate.component.css']
 })
 export class CommunicateComponent implements OnInit {
-
-  constructor() { }
+  state$: Observable<CommunicateState>;
+  constructor(private communicateService: CommunicateService) {}
 
   ngOnInit() {
+    this.state$ = this.communicateService.state$;
   }
 
+  hide(): void {
+    console.log(this.state$)
+    this.communicateService.hide();
+  }
 }

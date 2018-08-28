@@ -11,6 +11,7 @@ import { HttpStatusService } from '../core/http/http-status.service';
 
 import { Trip } from '../shared/models/Trip';
 import { of } from 'rxjs/internal/observable/of';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const trips: Trip[] = [{ name: 'trip1' }, { name: 'trip2' }];
 
@@ -36,7 +37,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, BsDatepickerModule.forRoot()],
+      imports: [FormsModule, SharedModule, BsDatepickerModule.forRoot()],
       declarations: [DashboardComponent, DatePickerComponent],
       providers: [
         { provide: DashboardService, useClass: MockDashboardService },

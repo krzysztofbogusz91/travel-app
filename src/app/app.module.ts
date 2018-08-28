@@ -26,8 +26,8 @@ const routes = [
     BrowserModule,
     CoreModule,
     RouterModule.forRoot(routes),
-    DashboardModule,
     SharedModule,
+    DashboardModule,
     HomeModule
   ],
 

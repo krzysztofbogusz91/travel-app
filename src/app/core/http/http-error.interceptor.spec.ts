@@ -1,28 +1,25 @@
-import { TestBed, tick, fakeAsync, flush } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { HttpStatusInterceptor } from './http-status.interceptor';
-import { HttpStatusService } from './http-status.service';
 import { httpInterceptorProviders } from '.';
-import { of } from 'rxjs/internal/observable/of';
-import { catchError } from 'rxjs/operators';
+import { HttpErrorInterceptor } from 'src/app/core/http/http-error.interceptor';
+import { CommunicateService } from 'src/app/shared/communicate.service';
 
-describe('HttpStatusInterceptor', () => {
+describe('HttpErrorInterceptor', () => {
   let http: HttpClient;
   let httpMock: HttpTestingController;
-  let httpStatusService: HttpStatusService;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
         HttpClient,
-        HttpStatusService,
+        CommunicateService,
         {
           provide: HTTP_INTERCEPTORS,
-          useClass: HttpStatusInterceptor,
+          useClass: HttpErrorInterceptor,
           multi: true
         },
         httpInterceptorProviders
@@ -30,21 +27,5 @@ describe('HttpStatusInterceptor', () => {
     });
     http = TestBed.get(HttpClient);
     httpMock = TestBed.get(HttpTestingController);
-    httpStatusService = TestBed.get(HttpStatusService);
-  });
-
-  it('should retrun observable of error when http request has an error', done => {
-    const url = 'url';
-    const myError = { status: 404, statusText: 'bad request' };
-
-    http
-      .get(url)
-      .pipe(catchError((error) => of(error.status)))
-      .subscribe(error => {
-        expect(error).toBe(404);
-        done();
-      });
-
-    httpMock.expectOne(url).flush('error', myError);
   });
 });

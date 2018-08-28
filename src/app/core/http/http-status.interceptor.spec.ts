@@ -1,4 +1,4 @@
-import { TestBed, tick, fakeAsync, flush } from '@angular/core/testing';
+import { TestBed} from '@angular/core/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController
@@ -7,7 +7,6 @@ import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HttpStatusInterceptor } from './http-status.interceptor';
 import { HttpStatusService } from './http-status.service';
 import { httpInterceptorProviders } from '.';
-import { of } from 'rxjs/internal/observable/of';
 
 describe('HttpStatusInterceptor', () => {
   let http: HttpClient;

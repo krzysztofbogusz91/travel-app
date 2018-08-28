@@ -4,8 +4,9 @@ import { CommunicateComponent } from 'src/app/shared/communicate/communicate.com
 
 @NgModule({
   imports: [
-    CommonModule
+  CommonModule
   ],
-  declarations: [CommunicateComponent]
+  declarations: [CommunicateComponent],
+  exports: [CommunicateComponent]
 })
 export class SharedModule { }
