@@ -4,9 +4,9 @@ import {
   HttpClientTestingModule,
   HttpTestingController
 } from '@angular/common/http/testing';
-import { mockTripApiResponse } from '../../../mocks/tests/data-mock';
+import { mockTripApiResponse } from 'mocks/tests/data-mock';
 import { DashboardService } from './dashboard.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpErrorResponse } from '@angular/common/http';
 
 describe('DashboardService', () => {

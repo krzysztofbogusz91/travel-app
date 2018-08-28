@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComunicateComponent } from './comunicate/comunicate.component';
+import { CommunicateComponent } from 'src/app/shared/communicate/communicate.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [ComunicateComponent]
+  declarations: [CommunicateComponent]
 })
 export class SharedModule { }

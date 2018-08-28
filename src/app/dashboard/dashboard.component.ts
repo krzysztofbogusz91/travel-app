@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TripDateRange } from '../shared/models/TripDateRange';
-import { DashboardService } from 'src/app/dashboard/dashboard.service';
+import { DashboardService } from './dashboard.service';
 import { Observable } from 'rxjs';
 
-import { Trip } from 'src/app/shared/models/Trip';
-import { HttpStatusService } from 'src/app/core/http/http-status.service';
+import { Trip } from '../shared/models/Trip';
+import { HttpStatusService } from '../core/http/http-status.service';
 
 @Component({
   selector: 'app-dashboard',

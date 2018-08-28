@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpStatusService } from 'src/app/core/http/http-status.service';
+import { HttpStatusService } from './http-status.service';
 
 describe('DashboardService', () => {
   let service: HttpStatusService;

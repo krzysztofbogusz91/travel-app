@@ -6,10 +6,10 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DashboardComponent } from './dashboard.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { TripDateRange } from '../shared/models/TripDateRange';
-import { DashboardService } from 'src/app/dashboard/dashboard.service';
-import { HttpStatusService } from 'src/app/core/http/http-status.service';
+import { DashboardService } from './dashboard.service';
+import { HttpStatusService } from '../core/http/http-status.service';
 
-import { Trip } from 'src/app/shared/models/Trip';
+import { Trip } from '../shared/models/Trip';
 import { of } from 'rxjs/internal/observable/of';
 
 const trips: Trip[] = [{ name: 'trip1' }, { name: 'trip2' }];

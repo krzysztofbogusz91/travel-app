@@ -4,9 +4,9 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { HttpStatusInterceptor } from 'src/app/core/http/http-status.interceptor';
-import { HttpStatusService } from 'src/app/core/http/http-status.service';
-import { httpInterceptorProviders } from 'src/app/core/http';
+import { HttpStatusInterceptor } from './http-status.interceptor';
+import { HttpStatusService } from './http-status.service';
+import { httpInterceptorProviders } from '.';
 import { of } from 'rxjs/internal/observable/of';
 
 describe('HttpStatusInterceptor', () => {

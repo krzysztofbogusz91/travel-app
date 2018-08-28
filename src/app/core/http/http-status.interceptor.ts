@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpRequest
 } from '@angular/common/http';
-import { HttpStatusService } from 'src/app/core/http/http-status.service';
+import { HttpStatusService } from './http-status.service';
 import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
 

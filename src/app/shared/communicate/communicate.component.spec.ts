@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComunicateComponent } from './comunicate.component';
+import { ComunicateComponent } from './communicate.component';
 
 describe('ComunicateComponent', () => {
   let component: ComunicateComponent;
