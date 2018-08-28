@@ -7,18 +7,25 @@ import { DashboardComponent } from './dashboard.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { TripDateRange } from '../shared/models/TripDateRange';
 import { DashboardService } from 'src/app/dashboard/dashboard.service';
+import { HttpStatusService } from 'src/app/core/http/http-status.service';
 
 import { Trip } from 'src/app/shared/models/Trip';
 import { of } from 'rxjs/internal/observable/of';
 
-const trips: Trip[] = [
-  {name: 'trip1'},
-  {name: 'trip2'}
-];
+const trips: Trip[] = [{ name: 'trip1' }, { name: 'trip2' }];
 
 class MockDashboardService {
-  getTrips(){
+  getTrips() {
     return of(trips);
+  }
+}
+
+class MockStatusService {
+  setHttpIsPending() {
+    return of(true);
+  }
+  getHttpStatus() {
+    return null;
   }
 }
 
@@ -31,7 +38,10 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       imports: [FormsModule, BsDatepickerModule.forRoot()],
       declarations: [DashboardComponent, DatePickerComponent],
-      providers: [{provide: DashboardService, useClass: MockDashboardService}]
+      providers: [
+        { provide: DashboardService, useClass: MockDashboardService },
+        { provide: HttpStatusService, useClass: MockStatusService }
+      ]
     }).compileComponents();
   }));
 
@@ -57,5 +67,4 @@ describe('DashboardComponent', () => {
       expect(component.datesRange).toEqual(mockDatesRange);
     });
   });
-
 });

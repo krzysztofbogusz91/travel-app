@@ -1,5 +1,6 @@
 <app-date-picker (rangeEmitter)="onDatesChange($event)"></app-date-picker>
 <p class="mt-4 text-center">view component</p>
+<div *ngIf="isLoading$ | async">loading...</div>
 <div *ngFor="let trip of (trips$ | async)">
   {{trip.name}}
 </div>

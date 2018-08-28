@@ -17,7 +17,6 @@ export class HttpStatusInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('it works');
     return next.handle(req).pipe(
       tap(() =>
         setTimeout(() => {

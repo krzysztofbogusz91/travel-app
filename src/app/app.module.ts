@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 const routes = [
   { path: 'home' , component: HomeComponent },
   { path: 'dashboard' , component: DashboardComponent},
@@ -29,7 +30,6 @@ const routes = [
     SharedModule,
     HomeModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
