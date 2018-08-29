@@ -17,7 +17,6 @@ export class CommunicateComponent implements OnInit {
   }
 
   hide(): void {
-    console.log(this.state$)
     this.communicateService.hide();
   }
 }

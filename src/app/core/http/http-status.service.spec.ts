@@ -16,9 +16,20 @@ describe('DashboardService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should subscribe to getStatus and return false', () => {
-    service.getHttpStatus().subscribe(status => {
-      expect(status).toBeFalsy();
+  describe('setHttpIsPending', () => {
+    it('should stream given data as observable', async() => {
+      service.setHttpIsPending(true);
+      service.requestInProgress$.subscribe(requestStatus => {
+        expect(requestStatus).toBeTruthy();
+      });
+    });
+  });
+
+  describe('getHttpStatus', () => {
+    it('should subscribe to getStatus and return false', () => {
+      service.getHttpStatus().subscribe(status => {
+        expect(status).toBeFalsy();
+      });
     });
   });
 });

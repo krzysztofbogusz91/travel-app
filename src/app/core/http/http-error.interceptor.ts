@@ -17,7 +17,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('error interceptor works');
     return next.handle(req).pipe(
       catchError(error => {
         this.communicateService.show('error msg');
