@@ -1,11 +1,11 @@
 export const mockTripApiResponse = [
   {
-    name: "trip1"
+    name: 'trip1'
   },
   {
-    name: "trip2"
+    name: 'trip2'
   },
   {
-    name: "trip3"
+    name: 'trip3'
   }
 ];
