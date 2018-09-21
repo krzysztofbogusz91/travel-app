@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Trip } from '../../shared/models/Trip';
 
 @Component({
   selector: 'app-trip',
   templateUrl: './trip.component.html',
   styleUrls: ['./trip.component.css']
 })
-export class TripComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class TripComponent {
+  @Input()
+  trip: Trip;
 }

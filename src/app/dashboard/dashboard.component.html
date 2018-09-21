@@ -2,6 +2,4 @@
 <p class="mt-4 text-center">view component</p>
 <div *ngIf="isLoading$ | async">loading...</div>
 <app-communicate></app-communicate>
-<div *ngFor="let trip of (trips$ | async)">
-  {{trip.name}}
-</div>
+<app-trip *ngFor="let trip of (trips$ | async)" [trip]="trip"> </app-trip>
