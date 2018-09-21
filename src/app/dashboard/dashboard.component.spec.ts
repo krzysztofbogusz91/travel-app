@@ -5,19 +5,19 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { DashboardComponent } from './dashboard.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
-import { TripDateRange } from '../shared/models/TripDateRange';
 import { DashboardService } from './dashboard.service';
 import { HttpStatusService } from '../core/http/http-status.service';
 
 import { Trip } from '../shared/models/Trip';
 import { of } from 'rxjs/internal/observable/of';
 import { SharedModule } from 'src/app/shared/shared.module';
-
-const trips: Trip[] = [{ name: 'trip1' }, { name: 'trip2' }];
+import { mockTripApiResponse, mockDatesRange } from 'mocks/tests/data-mock';
 
 class MockDashboardService {
+  trips: Trip[] = mockTripApiResponse;
+
   getTrips() {
-    return of(trips);
+    return of(this.trips);
   }
 }
 
@@ -59,11 +59,6 @@ describe('DashboardComponent', () => {
 
   describe('onDatesChange', () => {
     it('should have set component datesRange property', () => {
-      const mockDatesRange: TripDateRange = {
-        startDate: new Date(2018, 11, 17, 3, 24, 0),
-        endDate: new Date(2018, 12, 17, 3, 24, 0)
-      };
-
       component.onDatesChange(mockDatesRange);
       expect(component.datesRange).toEqual(mockDatesRange);
     });

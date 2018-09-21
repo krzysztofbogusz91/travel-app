@@ -3,4 +3,7 @@ export interface Trip {
   city: string;
   country: string;
   image: string;
+  price: string;
+  startDate: string;
+  endDate: string;
 }

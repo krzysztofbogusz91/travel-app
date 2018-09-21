@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpInterceptor,
-  HttpHandler,
-  HttpEvent,
-  HttpRequest
-} from '@angular/common/http';
+import { HttpInterceptor, HttpHandler, HttpEvent, HttpRequest } from '@angular/common/http';
 import { HttpStatusService } from './http-status.service';
 import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
@@ -13,19 +8,14 @@ import { tap, finalize } from 'rxjs/operators';
 export class HttpStatusInterceptor implements HttpInterceptor {
   constructor(private httpStatusService: HttpStatusService) {}
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       tap(() =>
         setTimeout(() => {
           this.httpStatusService.setHttpIsPending(true);
         })
       ),
-      finalize(() =>
-        setTimeout(() => this.httpStatusService.setHttpIsPending(false), 500)
-      )
+      finalize(() => setTimeout(() => this.httpStatusService.setHttpIsPending(false), 400))
     );
   }
 }
