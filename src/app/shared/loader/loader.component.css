@@ -1,0 +1,9 @@
+.loader {
+  background-color: #007bff;
+  opacity: 0.2;
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  z-index: 100000;
+}
