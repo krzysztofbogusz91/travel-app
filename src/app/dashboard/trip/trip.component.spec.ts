@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TripComponent } from './trip.component';
 import { mockTripApiResponse } from 'mocks/tests/data-mock';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TripComponent', () => {
   let component: TripComponent;
@@ -9,6 +10,7 @@ describe('TripComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [TripComponent]
     }).compileComponents();
   }));

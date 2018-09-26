@@ -9,10 +9,11 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TripComponent } from './trip/trip.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, HttpClientModule, SharedModule, BsDatepickerModule.forRoot()],
-  declarations: [DashboardComponent, DatePickerComponent, TripComponent],
+  imports: [CommonModule, RouterModule, FormsModule, HttpClientModule, SharedModule, BsDatepickerModule.forRoot()],
+declarations: [DashboardComponent, DatePickerComponent, TripComponent],
   exports: [DashboardComponent]
 })
 export class DashboardModule {}

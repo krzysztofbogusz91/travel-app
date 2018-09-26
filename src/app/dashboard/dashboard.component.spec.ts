@@ -13,6 +13,7 @@ import { of } from 'rxjs/internal/observable/of';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { mockTripApiResponse, mockDatesRange } from 'mocks/tests/data-mock';
 import { TripComponent } from './trip/trip.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 class MockDashboardService {
   trips: Trip[] = mockTripApiResponse;
@@ -38,7 +39,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, SharedModule, BsDatepickerModule.forRoot()],
+      imports: [FormsModule, RouterTestingModule, SharedModule, BsDatepickerModule.forRoot()],
       declarations: [DashboardComponent, TripComponent, DatePickerComponent],
       providers: [
         { provide: DashboardService, useClass: MockDashboardService },
