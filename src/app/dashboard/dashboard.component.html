@@ -1,5 +1,4 @@
 <app-date-picker (rangeEmitter)="onDatesChange($event)"></app-date-picker>
-<div *ngIf="isLoading$ | async">loading...</div>
 <app-communicate></app-communicate>
 <div class="d-flex flex-wrap justify-content-center">
   <app-trip *ngFor="let trip of (trips$ | async)" [trip]="trip"> </app-trip>

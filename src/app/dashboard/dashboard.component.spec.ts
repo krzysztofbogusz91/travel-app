@@ -6,29 +6,19 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DashboardComponent } from './dashboard.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DashboardService } from './dashboard.service';
-import { HttpStatusService } from '../core/http/http-status.service';
-
 import { Trip } from '../shared/models/Trip';
 import { of } from 'rxjs/internal/observable/of';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { mockTripApiResponse, mockDatesRange } from 'mocks/tests/data-mock';
 import { TripComponent } from './trip/trip.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 class MockDashboardService {
   trips: Trip[] = mockTripApiResponse;
 
   getTrips() {
     return of(this.trips);
-  }
-}
-
-class MockStatusService {
-  setHttpIsPending() {
-    return of(true);
-  }
-  getHttpStatus() {
-    return null;
   }
 }
 
@@ -39,12 +29,9 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterTestingModule, SharedModule, BsDatepickerModule.forRoot()],
+      imports: [FormsModule, RouterTestingModule, HttpClientTestingModule, SharedModule, BsDatepickerModule.forRoot()],
       declarations: [DashboardComponent, TripComponent, DatePickerComponent],
-      providers: [
-        { provide: DashboardService, useClass: MockDashboardService },
-        { provide: HttpStatusService, useClass: MockStatusService }
-      ]
+      providers: [{ provide: DashboardService, useClass: MockDashboardService }]
     }).compileComponents();
   }));
 

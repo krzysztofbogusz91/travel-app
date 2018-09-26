@@ -3,6 +3,7 @@ import { Trip } from 'src/app/shared/models/Trip';
 
 export const mockTripApiResponse: Trip[] = [
   {
+    id: '1',
     name: 'Go to Thailand',
     country: 'Thailand',
     city: 'Puckett',
@@ -13,6 +14,7 @@ export const mockTripApiResponse: Trip[] = [
       'https://images.pexels.com/photos/472309/pexels-photo-472309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
   },
   {
+    id: '2',
     name: 'Brazil recovery',
     country: 'Thailand',
     city: 'City',
@@ -23,6 +25,7 @@ export const mockTripApiResponse: Trip[] = [
       'https://images.pexels.com/photos/416998/pexels-photo-416998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
   },
   {
+    id: '3',
     name: 'Moscow shot out',
     country: 'Russia',
     city: 'Moscow',

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TripDateRange } from '../shared/models/TripDateRange';
-import { DashboardService } from './dashboard.service';
 import { Observable } from 'rxjs';
 
 import { Trip } from '../shared/models/Trip';
 import { HttpStatusService } from '../core/http/http-status.service';
+import { TripService } from './../shared/trip.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,17 +13,13 @@ import { HttpStatusService } from '../core/http/http-status.service';
 })
 export class DashboardComponent implements OnInit {
   datesRange: TripDateRange;
-  isLoading$: Observable<boolean>;
+
   trips$: Observable<Trip[]>;
 
-  constructor(
-    private dashboardService: DashboardService,
-    private httpStatusService: HttpStatusService
-  ) {}
+  constructor(private tripService: TripService) {}
 
   ngOnInit() {
-    this.isLoading$ = this.httpStatusService.getHttpStatus();
-    this.trips$ = this.dashboardService.getTrips();
+    this.trips$ = this.tripService.getTrips();
   }
 
   onDatesChange($event): void {

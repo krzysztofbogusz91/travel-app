@@ -1,3 +1,13 @@
-<p>
-  trip-details works!
-</p>
+<div *ngIf="(trip$ | async) as trip">
+  <div class="card m-1 p-1 w-100" style="width: 18rem;">
+    <img class="card-img-top" src={{trip.image}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{trip.name}}</h5>
+      <p class="card-text">Town: {{trip.city}}</p>
+      <p class="card-text">Price: {{trip.price}}</p>
+      <p class="card-text">From: {{trip.startDate}} - To: {{trip.endDate}}</p>
+    </div>
+  </div>
+</div>
+<a [routerLink]="['/dashboard']" class="btn btn-primary m-1">
+  << Go Back</a>

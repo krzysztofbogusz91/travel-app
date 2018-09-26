@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [CommonModule, RouterModule, FormsModule, HttpClientModule, SharedModule, BsDatepickerModule.forRoot()],
-declarations: [DashboardComponent, DatePickerComponent, TripComponent],
+  declarations: [DashboardComponent, DatePickerComponent, TripComponent],
   exports: [DashboardComponent]
 })
 export class DashboardModule {}
