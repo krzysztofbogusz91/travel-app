@@ -1,4 +1,5 @@
 <div *ngIf="(trip$ | async) as trip">
+  <app-trip-form *ngIf="showForm"></app-trip-form>
   <div class="card m-1 p-1 w-100" style="width: 18rem;">
     <img class="card-img-top" src={{trip.image}} alt="Card image cap">
     <div class="card-body">
@@ -10,4 +11,6 @@
   </div>
 </div>
 <a [routerLink]="['/dashboard']" class="btn btn-primary m-1">
-  << Go Back</a>
+  << Go Back</a> <button (click)="openFormModal()" class="btn btn-success m-1">
+    Book this trip
+    </button>
