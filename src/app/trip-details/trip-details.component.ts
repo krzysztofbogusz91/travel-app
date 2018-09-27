@@ -3,7 +3,6 @@ import { TripService } from 'src/app/shared/trip.service';
 import { Trip } from 'src/app/shared/models/Trip';
 import { Observable } from 'rxjs/internal/Observable';
 import { ActivatedRoute } from '@angular/router';
-import { HttpStatusService } from 'src/app/core/http/http-status.service';
 
 @Component({
   selector: 'app-trip-details',
@@ -13,11 +12,21 @@ import { HttpStatusService } from 'src/app/core/http/http-status.service';
 export class TripDetailsComponent implements OnInit {
   trip$: Observable<Trip>;
   id: string;
+  showForm: boolean;
 
-  constructor(private tripService: TripService, private route: ActivatedRoute) {}
+  constructor(private tripService: TripService, private route: ActivatedRoute) {
+    this.showForm = false;
+  }
+
+  // TODO
+  // add route change on open form;
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.trip$ = this.tripService.getTrip(this.id);
+  }
+
+  openFormModal() {
+    this.showForm = this.showForm ? false : true;
   }
 }

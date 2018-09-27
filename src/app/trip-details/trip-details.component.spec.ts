@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TripDetailsComponent } from './trip-details.component';
+import { TripFormComponent } from 'src/app/trip-details/trip-form/trip-form.component';
 
 describe('TripDetailsComponent', () => {
   let component: TripDetailsComponent;
@@ -10,7 +11,7 @@ describe('TripDetailsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule],
-      declarations: [TripDetailsComponent]
+      declarations: [TripDetailsComponent, TripFormComponent]
     }).compileComponents();
   }));
 
@@ -22,5 +23,10 @@ describe('TripDetailsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should open form component when user try to book trip', () => {
+    component.showForm = false;
+    component.openFormModal();
+    expect(component.showForm).toBe(true);
   });
 });
