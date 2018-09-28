@@ -15,9 +15,6 @@ export class TripDetailsComponent implements OnInit {
 
   constructor(private tripService: TripService, private route: ActivatedRoute) {}
 
-  // TODO
-  // add route change on open form;
-
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.trip$ = this.tripService.getTrip(this.id);
