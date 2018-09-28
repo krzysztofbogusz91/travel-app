@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Trip } from 'src/app/shared/models/Trip';
+import { TripService } from './../../shared/trip.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-trip-form',
@@ -7,12 +10,20 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./trip-form.component.css']
 })
 export class TripFormComponent implements OnInit {
+  trip$: Observable<Trip>;
+
   travelForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl('')
+    tripDetails: new FormGroup({
+      upgrade: new FormControl(false)
+    }),
+    personalData: new FormGroup({
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      email: new FormControl('')
+    })
   });
 
-  constructor() {}
+  constructor(private tripService: TripService) {}
 
   ngOnInit() {}
 }
