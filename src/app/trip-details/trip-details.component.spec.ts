@@ -24,9 +24,4 @@ describe('TripDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should open form component when user try to book trip', () => {
-    component.showForm = false;
-    component.openFormModal();
-    expect(component.showForm).toBe(true);
-  });
 });
