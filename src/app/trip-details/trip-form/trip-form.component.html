@@ -1,7 +1,22 @@
 <div class="form_modal_background">
   <div class="form_modal bg-light">
-    <div class="">
-      FORM
+    <div class="container">
+
+      <form formGroup="travelForm">
+        <div class="form-group">
+          <h4>Personal Data:</h4>
+          <label>
+            First Name:
+            <input type="text" formControlName="firstName">
+          </label>
+
+          <label>
+            Last Name:
+            <input type="text" formControlName="lastName">
+          </label>
+        </div>
+      </form>
+
       <a [routerLink]="['../']" class="btn btn-danger">Close</a>
     </div>
   </div>

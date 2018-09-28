@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-trip-form',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trip-form.component.css']
 })
 export class TripFormComponent implements OnInit {
+  travelForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl('')
+  });
+
   constructor() {}
 
   ngOnInit() {}
