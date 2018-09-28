@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TripDetailsComponent } from './trip-details.component';
 import { TripFormComponent } from 'src/app/trip-details/trip-form/trip-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('TripDetailsComponent', () => {
   let component: TripDetailsComponent;
@@ -10,7 +11,7 @@ describe('TripDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      imports: [RouterTestingModule, HttpClientTestingModule, ReactiveFormsModule],
       declarations: [TripDetailsComponent, TripFormComponent]
     }).compileComponents();
   }));

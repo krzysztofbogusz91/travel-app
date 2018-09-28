@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TripService } from 'src/app/shared/trip.service';
 import { Trip } from 'src/app/shared/models/Trip';
 import { Observable } from 'rxjs/internal/Observable';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-trip-details',
