@@ -1,5 +1,5 @@
 <div *ngIf="(trip$ | async) as trip">
-  <app-trip-form *ngIf="showForm"></app-trip-form>
+  <app-trip-form (close)="closeFormModal($event)" *ngIf="showForm"></app-trip-form>
   <div class="card m-1 p-1 w-100" style="width: 18rem;">
     <img class="card-img-top" src={{trip.image}} alt="Card image cap">
     <div class="card-body">

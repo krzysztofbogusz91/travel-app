@@ -21,12 +21,16 @@ export class TripDetailsComponent implements OnInit {
   // TODO
   // add route change on open form;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.trip$ = this.tripService.getTrip(this.id);
   }
 
-  openFormModal() {
-    this.showForm = this.showForm ? false : true;
+  openFormModal(): void {
+    this.showForm = true;
+  }
+
+  closeFormModal(): void {
+    this.showForm = false;
   }
 }
