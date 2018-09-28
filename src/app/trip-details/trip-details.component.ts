@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TripService } from 'src/app/shared/trip.service';
 import { Trip } from 'src/app/shared/models/Trip';
 import { Observable } from 'rxjs/internal/Observable';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-trip-details',
@@ -12,11 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class TripDetailsComponent implements OnInit {
   trip$: Observable<Trip>;
   id: string;
-  showForm: boolean;
 
-  constructor(private tripService: TripService, private route: ActivatedRoute) {
-    this.showForm = false;
-  }
+  constructor(private tripService: TripService, private route: ActivatedRoute) {}
 
   // TODO
   // add route change on open form;
@@ -24,13 +21,5 @@ export class TripDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.trip$ = this.tripService.getTrip(this.id);
-  }
-
-  openFormModal(): void {
-    this.showForm = true;
-  }
-
-  closeFormModal(): void {
-    this.showForm = false;
   }
 }

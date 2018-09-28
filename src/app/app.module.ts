@@ -12,11 +12,21 @@ import { TripDetailsModule } from './trip-details/trip-details.module';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
+import { TripFormComponent } from 'src/app/trip-details/trip-form/trip-form.component';
 
 const routes = [
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'trip/:id', component: TripDetailsComponent },
+  {
+    path: 'trip/:id',
+    component: TripDetailsComponent,
+    children: [
+      {
+        path: 'trip-form',
+        component: TripFormComponent
+      }
+    ]
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
