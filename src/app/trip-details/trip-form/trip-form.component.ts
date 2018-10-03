@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Trip } from 'src/app/shared/models/Trip';
-import { TripService } from './../../shared/trip.service';
 import { Observable } from 'rxjs';
+import { CurrentTripProviderService } from './../current-trip-provider.service';
 
 @Component({
   selector: 'app-trip-form',
@@ -23,7 +23,9 @@ export class TripFormComponent implements OnInit {
     })
   });
 
-  constructor(private tripService: TripService) {}
+  constructor(private currentTripProviderService: CurrentTripProviderService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.trip$ = this.currentTripProviderService.getCurrentTrip();
+  }
 }

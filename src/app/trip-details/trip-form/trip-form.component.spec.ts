@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { mockTripApiResponse } from 'mocks/tests/data-mock';
 import { of } from 'rxjs';
+import { CurrentTripProviderService } from 'src/app/trip-details/current-trip-provider.service';
 
 describe('TripFormComponent', () => {
   let component: TripFormComponent;
@@ -15,6 +16,7 @@ describe('TripFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule, ReactiveFormsModule],
+      providers: [CurrentTripProviderService],
       declarations: [TripFormComponent]
     }).compileComponents();
   }));
