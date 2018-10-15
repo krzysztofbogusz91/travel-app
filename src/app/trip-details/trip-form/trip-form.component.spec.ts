@@ -32,14 +32,21 @@ describe('TripFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain reactive form element', () => {
-    expect(component.travelForm).toBeTruthy();
-  });
-
   it('should contain chosen trip data', done => {
     component.trip$.subscribe(data => {
       expect(data).not.toBeUndefined();
       done();
     });
+  });
+
+  it('should contain reactive form element', () => {
+    expect(component.travelForm).toBeTruthy();
+  });
+
+  it('trip Details upgrade should be falsy', () => {
+    const travelFormControls = component.travelForm.controls;
+    const tripDetails = travelFormControls.tripDetails.controls['upgrade'];
+
+    expect(tripDetails.value).toBeFalsy();
   });
 });

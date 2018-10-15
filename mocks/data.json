@@ -2,7 +2,7 @@
   "trips": [
     {
       "id": "1",
-      "name": "Go to Thailand",
+      "name": "Trip 1",
       "country": "Thailand",
       "city": "Puckett",
       "price": "2000.00$$",
@@ -11,18 +11,18 @@
       "image": "https://images.pexels.com/photos/472309/pexels-photo-472309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
-      "id":"2",
-      "name": "Brazil recovery",
-      "country": "Thailand",
-      "city": "City",
+      "id": "2",
+      "name": "Trip 2",
+      "country": "Brazil",
+      "city": "Rio",
       "price": "2000.00$$",
       "startDate": "20 Jun 2018",
       "endDate": "28 Jun 2018",
       "image": "https://images.pexels.com/photos/416998/pexels-photo-416998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
-      "id":"3",
-      "name": "Moscow shot out",
+      "id": "3",
+      "name": "Trip 3",
       "country": "Russia",
       "city": "Moscow",
       "price": "2000.00$$",

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="display-4 my-3" *ngIf="(trip$ | async) as trip">
         {{trip.name}}</div>
-      <form [formGroup]="travelForm">
+      <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
         <div class="py-2" formGroupName="tripDetails">
           <h4 class="my-2">Chose Trip Options:</h4>
           <div class="form-check">

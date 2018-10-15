@@ -1,8 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Trip } from 'src/app/shared/models/Trip';
 import { Observable } from 'rxjs';
 import { CurrentTripProviderService } from './../current-trip-provider.service';
+import { EventEmitter } from 'events';
+import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
 
 @Component({
   selector: 'app-trip-form',
@@ -10,6 +12,8 @@ import { CurrentTripProviderService } from './../current-trip-provider.service';
   styleUrls: ['./trip-form.component.css']
 })
 export class TripFormComponent implements OnInit {
+  @Output()
+  travelRequest = new EventEmitter();
   trip$: Observable<Trip>;
 
   travelForm = new FormGroup({
@@ -23,9 +27,16 @@ export class TripFormComponent implements OnInit {
     })
   });
 
-  constructor(private currentTripProviderService: CurrentTripProviderService) {}
+  constructor(
+    private currentTripProviderService: CurrentTripProviderService,
+    private tripFormService: TripFormService
+  ) {}
 
   ngOnInit() {
     this.trip$ = this.currentTripProviderService.getCurrentTrip();
+  }
+
+  onSubmit() {
+    this.tripFormService.submitFormEmmiter(this.travelForm.value);
   }
 }
