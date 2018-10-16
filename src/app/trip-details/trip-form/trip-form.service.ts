@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, of } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { Router } from '@angular/router';
 
@@ -12,9 +12,9 @@ export class TripFormService {
 
   constructor(private router: Router) {}
 
-  submitFormEmmiter(form) {
+  submitFormEmitter(form) {
     console.log(form);
     this._form$.next(form);
-    this.router.navigate(['/']);
+    this.router.navigate(['/trip-summary']);
   }
 }

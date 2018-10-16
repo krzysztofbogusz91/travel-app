@@ -18,7 +18,8 @@ export class TripFormComponent implements OnInit {
 
   travelForm = new FormGroup({
     tripDetails: new FormGroup({
-      upgrade: new FormControl(false)
+      upgrade: new FormControl(false),
+      price: new FormControl('')
     }),
     personalData: new FormGroup({
       firstName: new FormControl(''),
@@ -37,6 +38,6 @@ export class TripFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.tripFormService.submitFormEmmiter(this.travelForm.value);
+    this.tripFormService.submitFormEmitter(this.travelForm.value);
   }
 }

@@ -1,42 +1,43 @@
 <div class="form_modal_background">
   <div class="form_modal bg-light">
     <div class="container">
-      <div class="display-4 my-3" *ngIf="(trip$ | async) as trip">
-        {{trip.name}}</div>
-      <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
-        <div class="py-2" formGroupName="tripDetails">
-          <h4 class="my-2">Chose Trip Options:</h4>
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" formControlName="upgrade">
-              I want upgrade my Trip!
-            </label>
+      <div *ngIf="(trip$ | async) as trip">
+        <h4 class="display-4 my-3"> {{trip.name}}</h4>
+        <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+          <div class="py-2" formGroupName="tripDetails">
+            <h4 class="my-2">Chose Trip Options:</h4>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input (change)="getPrice(trip.price + 200)" type="checkbox" class="form-check-input" formControlName="upgrade">
+                I want upgrade my Trip! + 200.00$
+              </label>
+            </div>
           </div>
-        </div>
-        <div class="py-2" formGroupName="personalData">
-          <h4 class="my-2">Personal Data:</h4>
-          <div class="form-group">
-            <label>
-              First Name:
-              <input type="text" class="form-control" formControlName="firstName">
-            </label>
+          <div class="py-2" formGroupName="personalData">
+            <h4 class="my-2">Personal Data:</h4>
+            <div class="form-group">
+              <label>
+                First Name:
+                <input type="text" class="form-control" formControlName="firstName">
+              </label>
+            </div>
+            <div class="form-group">
+              <label>
+                Last Name:
+                <input type="text" class="form-control" formControlName="lastName">
+              </label>
+            </div>
+            <div class="form-group">
+              <label>
+                Email:
+                <input type="email" class="form-control" formControlName="email">
+              </label>
+            </div>
           </div>
-          <div class="form-group">
-            <label>
-              Last Name:
-              <input type="text" class="form-control" formControlName="lastName">
-            </label>
-          </div>
-          <div class="form-group">
-            <label>
-              Email:
-              <input type="email" class="form-control" formControlName="email">
-            </label>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-success mr-2">Submit Order</button>
-        <a [routerLink]="['../']" class="btn btn-danger">Close</a>
-      </form>
+          <button type="submit" class="btn btn-success mr-2">Submit Order</button>
+          <a [routerLink]="['../']" class="btn btn-danger">Close</a>
+        </form>
+      </div>
     </div>
   </div>
 </div>

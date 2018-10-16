@@ -5,7 +5,7 @@
       "name": "Trip 1",
       "country": "Thailand",
       "city": "Puckett",
-      "price": "2000.00$$",
+      "price": "2000.00$",
       "startDate": "20 Dec 2018",
       "endDate": "28 Dec 2018",
       "image": "https://images.pexels.com/photos/472309/pexels-photo-472309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -15,7 +15,7 @@
       "name": "Trip 2",
       "country": "Brazil",
       "city": "Rio",
-      "price": "2000.00$$",
+      "price": "2000.00$",
       "startDate": "20 Jun 2018",
       "endDate": "28 Jun 2018",
       "image": "https://images.pexels.com/photos/416998/pexels-photo-416998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -25,7 +25,7 @@
       "name": "Trip 3",
       "country": "Russia",
       "city": "Moscow",
-      "price": "2000.00$$",
+      "price": "2000.00$",
       "startDate": "20 Nov 2018",
       "endDate": "28 Nov 2018",
       "image": "https://images.pexels.com/photos/417322/pexels-photo-417322.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
