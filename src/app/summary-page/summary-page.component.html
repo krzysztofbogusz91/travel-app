@@ -1,9 +1,12 @@
 <div *ngIf="(summary$ | async) as summary; else loading">
-  <div>
+  <div class="alert alert-success" role="alert">Your order was successfully send</div>
+  <div class="container">
+    <div> Order Summary:
+    </div>
+    <div>{{summary.personalData.firstName}}</div>
+    <div>{{summary.personalData.lastName}}</div>
     <div>{{summary.personalData.email}}</div>
   </div>
-  <div>{{summary.personalData.lastName}}</div>
-  <div>{{summary.personalData.email}}</div>
 </div>
 <ng-template #loading>
   Loading stuff...
