@@ -8,15 +8,17 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { mockTripApiResponse } from 'mocks/tests/data-mock';
 import { of } from 'rxjs';
 import { CurrentTripProviderService } from 'src/app/trip-details/current-trip-provider.service';
+import { TripFormService } from 'src/app/shared/trip-form.service';
 
 describe('TripFormComponent', () => {
   let component: TripFormComponent;
   let fixture: ComponentFixture<TripFormComponent>;
+  let tripFormService: TripFormService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule, FormsModule, ReactiveFormsModule],
-      providers: [CurrentTripProviderService],
+      imports: [RouterTestingModule.withRoutes([]), HttpClientTestingModule, FormsModule, ReactiveFormsModule],
+      providers: [CurrentTripProviderService, TripFormService],
       declarations: [TripFormComponent]
     }).compileComponents();
   }));
@@ -24,6 +26,7 @@ describe('TripFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TripFormComponent);
     component = fixture.componentInstance;
+    tripFormService = TestBed.get(TripFormService);
     fixture.detectChanges();
     component.trip$ = of(mockTripApiResponse[1]);
   });
@@ -48,5 +51,12 @@ describe('TripFormComponent', () => {
     const tripDetails = travelFormControls.tripDetails.controls['upgrade'];
 
     expect(tripDetails.value).toBeFalsy();
+  });
+
+  it('should submit form', () => {
+    const submitFormSpy = spyOn(tripFormService, 'submitFormEmitter');
+    component.onSubmit();
+    expect(submitFormSpy).toHaveBeenCalled();
+    expect(submitFormSpy).toHaveBeenCalledWith(component.travelForm.value);
   });
 });

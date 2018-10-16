@@ -4,6 +4,7 @@ import { TripFormService } from './trip-form.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('TripFormService', () => {
   const msg = { msg: 'works' };
@@ -24,6 +25,7 @@ describe('TripFormService', () => {
   });
 
   it('should stream form on submit', done => {
+    spyOn((service as any).router, 'navigate');
     service.form$.subscribe(stream => {
       expect(stream).toEqual(msg);
       done();
@@ -34,6 +36,6 @@ describe('TripFormService', () => {
   it('should redirect to summary page', () => {
     const navigateSpy = spyOn((service as any).router, 'navigate');
     service.submitFormEmitter(msg);
-    expect(navigateSpy).toHaveBeenCalledWith('/trip-summary');
+    expect(navigateSpy).toHaveBeenCalledWith(['/summary']);
   });
 });

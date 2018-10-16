@@ -1,0 +1,10 @@
+<div *ngIf="(summary$ | async) as summary; else loading">
+  <div>
+    <div>{{summary.personalData.email}}</div>
+  </div>
+  <div>{{summary.personalData.lastName}}</div>
+  <div>{{summary.personalData.email}}</div>
+</div>
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

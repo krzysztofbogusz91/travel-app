@@ -4,7 +4,7 @@ import { Trip } from 'src/app/shared/models/Trip';
 import { Observable } from 'rxjs';
 import { CurrentTripProviderService } from './../current-trip-provider.service';
 import { EventEmitter } from 'events';
-import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
+import { TripFormService } from 'src/app/shared/trip-form.service';
 
 @Component({
   selector: 'app-trip-form',

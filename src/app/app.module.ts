@@ -13,10 +13,12 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { TripFormComponent } from 'src/app/trip-details/trip-form/trip-form.component';
+import { SummaryPageComponent } from './summary-page/summary-page.component';
 
 const routes = [
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'summary', component: SummaryPageComponent },
   {
     path: 'trip/:id',
     component: TripDetailsComponent,
@@ -27,11 +29,12 @@ const routes = [
       }
     ]
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SummaryPageComponent],
   imports: [
     BrowserModule,
     CoreModule,
