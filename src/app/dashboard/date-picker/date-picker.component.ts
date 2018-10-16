@@ -28,10 +28,7 @@ export class DatePickerComponent implements OnInit {
   }
 
   emitDateRangeToDashboard(): void {
-    const dateRange = Object.assign(
-      {},
-      { startDate: this.rangeDates[0], endDate: this.rangeDates[1] }
-    );
+    const dateRange = Object.assign({}, { startDate: this.rangeDates[0], endDate: this.rangeDates[1] });
     this.rangeEmitter.emit(dateRange);
   }
 }

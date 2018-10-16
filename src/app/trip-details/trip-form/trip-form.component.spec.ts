@@ -8,7 +8,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { mockTripApiResponse } from 'mocks/tests/data-mock';
 import { of } from 'rxjs';
 import { CurrentTripProviderService } from 'src/app/trip-details/current-trip-provider.service';
-import { TripFormService } from 'src/app/shared/trip-form.service';
+import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
 
 describe('TripFormComponent', () => {
   let component: TripFormComponent;

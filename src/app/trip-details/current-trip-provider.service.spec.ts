@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { CurrentTripProviderService } from './current-trip-provider.service';
+import { TripService } from 'src/app/trip-details/trip.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TripService } from 'src/app/shared/trip.service';
 import { of } from 'rxjs/internal/observable/of';
 
 describe('CurrentTripProviderService', () => {

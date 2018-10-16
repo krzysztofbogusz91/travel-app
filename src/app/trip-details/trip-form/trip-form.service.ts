@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class TripFormService {
-  _form$: BehaviorSubject<any> = new BehaviorSubject(false);
-  form$: Observable<any> = this._form$.asObservable();
+  _form$: BehaviorSubject<any>;
+  form$: Observable<any>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this._form$ = new BehaviorSubject(false);
+    this.form$ = this._form$.asObservable();
+  }
 
   submitFormEmitter(form) {
     this._form$.next(form);

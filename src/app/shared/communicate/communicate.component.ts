@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommunicateState } from 'src/app/shared/models/CommunicateState.interface';
-import { CommunicateService } from 'src/app/shared/communicate.service';
+import { CommunicateService } from 'src/app/shared/communicate/communicate.service';
 
 @Component({
   selector: 'app-communicate',

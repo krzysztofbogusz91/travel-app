@@ -17,7 +17,7 @@ describe('CommunicateService', () => {
   describe('show method', () => {
     const msg = 'msg';
 
-    it('should change initial state when called show and display msg', async() => {
+    it('should change initial state when called show and display msg', async () => {
       service.show(msg);
 
       service.state$.subscribe(stream => {

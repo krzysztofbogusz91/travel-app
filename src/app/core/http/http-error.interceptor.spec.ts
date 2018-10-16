@@ -1,11 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HttpErrorInterceptor } from 'src/app/core/http/http-error.interceptor';
-import { CommunicateService } from 'src/app/shared/communicate.service';
+import { CommunicateService } from 'src/app/shared/communicate/communicate.service';
 
 describe('HttpErrorInterceptor', () => {
   let http: HttpClient;
@@ -38,9 +35,7 @@ describe('HttpErrorInterceptor', () => {
       expect(communicateService.show).toHaveBeenCalledWith('error msg');
     });
 
-    httpMock
-      .expectOne(url)
-      .flush({ error: 'error msg' }, { status: 404, statusText: 'error msg' });
+    httpMock.expectOne(url).flush({ error: 'error msg' }, { status: 404, statusText: 'error msg' });
   });
 
   it('should not to call show method when request is correct', async () => {

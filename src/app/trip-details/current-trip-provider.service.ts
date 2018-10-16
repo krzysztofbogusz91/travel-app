@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TripService } from './../shared/trip.service';
 import { Observable } from 'rxjs';
+import { TripService } from 'src/app/trip-details/trip.service';
 import { Trip } from 'src/app/shared/models/Trip';
 
 @Injectable({

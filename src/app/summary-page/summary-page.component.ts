@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TripFormService } from 'src/app/shared/trip-form.service';
+import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
