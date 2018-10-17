@@ -1,26 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SummaryPageComponent } from './summary-page.component';
-import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SummaryService } from 'src/app/summary-page/summary.service';
 
 describe('SummaryPageComponent', () => {
   let component: SummaryPageComponent;
   let fixture: ComponentFixture<SummaryPageComponent>;
-  let tripFormService: TripFormService;
+  let summaryService: SummaryService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([])],
       declarations: [SummaryPageComponent],
-      providers: [TripFormService]
+      providers: [SummaryService]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SummaryPageComponent);
     component = fixture.componentInstance;
-    tripFormService = TestBed.get(TripFormService);
+    summaryService = TestBed.get(SummaryService);
     fixture.detectChanges();
   });
 
