@@ -59,4 +59,27 @@ describe('TripFormComponent', () => {
     expect(submitFormSpy).toHaveBeenCalled();
     expect(submitFormSpy).toHaveBeenCalledWith(component.travelForm.value);
   });
+
+  it('should not validate empty form', () => {
+    component.createForm();
+    expect(component.travelForm.invalid).toBeTruthy();
+  });
+
+  it('should validate form', () => {
+    component.createForm();
+    const travelFormControls = component.travelForm.controls;
+    travelFormControls.personalData.controls['email'].setValue('mac@adf');
+    travelFormControls.personalData.controls['firstName'].setValue('John');
+    travelFormControls.personalData.controls['lastName'].setValue('Doe');
+    expect(component.travelForm.valid).toBeTruthy();
+  });
+
+  it('should validate email', () => {
+    component.createForm();
+    const travelFormControls = component.travelForm.controls;
+    travelFormControls.personalData.controls['email'].setValue('macadf');
+    travelFormControls.personalData.controls['firstName'].setValue('John');
+    travelFormControls.personalData.controls['lastName'].setValue('Doe');
+    expect(component.travelForm.valid).toBeFalsy();
+  });
 });
