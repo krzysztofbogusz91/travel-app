@@ -34,7 +34,7 @@
               </label>
             </div>
           </div>
-          <button type="submit" class="btn btn-success mr-2">Submit Order</button>
+          <button type="submit" [disabled]="!travelForm.valid" class="btn btn-success mr-2">Submit Order</button>
           <a [routerLink]="['../']" class="btn btn-danger">Close</a>
         </form>
       </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Trip } from 'src/app/shared/models/Trip';
 import { Observable } from 'rxjs';
 import { CurrentTripProviderService } from './../current-trip-provider.service';
@@ -16,25 +16,31 @@ export class TripFormComponent implements OnInit {
   travelRequest = new EventEmitter();
   trip$: Observable<Trip>;
 
-  travelForm = new FormGroup({
-    tripDetails: new FormGroup({
-      upgrade: new FormControl(false),
-      price: new FormControl('')
-    }),
-    personalData: new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      email: new FormControl('')
-    })
-  });
+  travelForm: FormGroup;
 
   constructor(
     private currentTripProviderService: CurrentTripProviderService,
-    private tripFormService: TripFormService
+    private tripFormService: TripFormService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
     this.trip$ = this.currentTripProviderService.getCurrentTrip();
+    this.createForm();
+  }
+
+  createForm() {
+    this.travelForm = this.fb.group({
+      tripDetails: this.fb.group({
+        upgrade: [false],
+        price: ['']
+      }),
+      personalData: this.fb.group({
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        email: ['', [Validators.email, Validators.required]]
+      })
+    });
   }
 
   onSubmit() {
