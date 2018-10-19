@@ -46,10 +46,8 @@ describe('DashboardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('onDatesChange', () => {
-    it('should have set component datesRange property', () => {
-      component.onDatesChange(mockDatesRange);
-      expect(component.datesRange).toEqual(mockDatesRange);
-    });
+  it('should have set component datesRange property', () => {
+    component.onDatesChange(mockDatesRange);
+    expect(component.datesRange).toEqual(mockDatesRange);
   });
 });

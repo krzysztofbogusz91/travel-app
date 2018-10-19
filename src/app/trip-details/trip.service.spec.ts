@@ -29,75 +29,71 @@ describe('TripService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('getTrips', () => {
-    it('should return list of trips', () => {
-      const mockTrips = mockTripApiResponse;
+  it('should return list of trips', () => {
+    const mockTrips = mockTripApiResponse;
 
-      service.getTrips().subscribe(trips => {
-        expect(trips).toEqual(mockTrips);
-      });
-
-      const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
-
-      expect(req.request.method).toEqual('GET');
-
-      req.flush(mockTrips);
-
-      httpTestingController.verify();
+    service.getTrips().subscribe(trips => {
+      expect(trips).toEqual(mockTrips);
     });
 
-    it('should return error when server responds with error', () => {
-      const mockError = { status: 404, statusText: 'Not Found' };
+    const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
 
-      service.getTrips().subscribe(
-        trips => {},
-        (error: HttpErrorResponse) => {
-          expect(error.status).toEqual(mockError.status);
-          expect(error.statusText).toEqual(mockError.statusText);
-        }
-      );
+    expect(req.request.method).toEqual('GET');
 
-      const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
+    req.flush(mockTrips);
 
-      expect(req.request.method).toEqual('GET');
-
-      req.flush('error', mockError);
-
-      httpTestingController.verify();
-    });
+    httpTestingController.verify();
   });
 
-  describe('getTrip', () => {
-    it('should return trip by its id', () => {
-      const mockTrips = mockTripApiResponse;
+  it('should return error when server responds with error', () => {
+    const mockError = { status: 404, statusText: 'Not Found' };
 
-      service.getTrip('1').subscribe(trip => {
-        expect(trip).toEqual(mockTrips[0]);
-      });
+    service.getTrips().subscribe(
+      trips => {},
+      (error: HttpErrorResponse) => {
+        expect(error.status).toEqual(mockError.status);
+        expect(error.statusText).toEqual(mockError.statusText);
+      }
+    );
 
-      const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
+    const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
 
-      expect(req.request.method).toEqual('GET');
+    expect(req.request.method).toEqual('GET');
 
-      req.flush(mockTrips);
+    req.flush('error', mockError);
 
-      httpTestingController.verify();
+    httpTestingController.verify();
+  });
+
+  it('should return trip by its id', () => {
+    const mockTrips = mockTripApiResponse;
+
+    service.getTrip('1').subscribe(trip => {
+      expect(trip).toEqual(mockTrips[0]);
     });
 
-    it('should return empty table when trip id is wrong', () => {
-      const mockTrips = mockTripApiResponse;
+    const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
 
-      service.getTrip('2023').subscribe(trip => {
-        expect(trip).toBeUndefined();
-      });
+    expect(req.request.method).toEqual('GET');
 
-      const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
+    req.flush(mockTrips);
 
-      expect(req.request.method).toEqual('GET');
+    httpTestingController.verify();
+  });
 
-      req.flush(mockTrips);
+  it('should return empty table when trip id is wrong', () => {
+    const mockTrips = mockTripApiResponse;
 
-      httpTestingController.verify();
+    service.getTrip('2023').subscribe(trip => {
+      expect(trip).toBeUndefined();
     });
+
+    const req = httpTestingController.expectOne(`${environment.tripsURL}trips`);
+
+    expect(req.request.method).toEqual('GET');
+
+    req.flush(mockTrips);
+
+    httpTestingController.verify();
   });
 });
