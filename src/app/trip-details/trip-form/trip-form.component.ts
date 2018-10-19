@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Trip } from 'src/app/shared/models/Trip';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CurrentTripProviderService } from './../current-trip-provider.service';
 import { EventEmitter } from 'events';
 import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
@@ -14,8 +14,8 @@ import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.servic
 export class TripFormComponent implements OnInit {
   @Output()
   travelRequest = new EventEmitter();
-  trip$: Observable<Trip>;
 
+  trip$: Observable<Trip>;
   travelForm: FormGroup;
 
   constructor(
@@ -24,7 +24,7 @@ export class TripFormComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.trip$ = this.currentTripProviderService.getCurrentTrip();
     this.createForm();
   }
@@ -41,6 +41,22 @@ export class TripFormComponent implements OnInit {
         email: ['', [Validators.email, Validators.required]]
       })
     });
+  }
+
+  createReactiveForm(trip: Observable<Trip>): Observable<FormGroup> {
+    return of(
+      this.fb.group({
+        tripDetails: this.fb.group({
+          upgrade: [false],
+          price: ['']
+        }),
+        personalData: this.fb.group({
+          firstName: ['', Validators.required],
+          lastName: ['', Validators.required],
+          email: ['', [Validators.email, Validators.required]]
+        })
+      })
+    );
   }
 
   onSubmit() {
