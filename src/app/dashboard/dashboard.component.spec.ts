@@ -6,7 +6,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DashboardComponent } from './dashboard.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DashboardService } from './dashboard.service';
-import { Trip } from '../shared/models/Trip';
+import { Trip } from '../shared/models/trip.interface';
 import { of } from 'rxjs/internal/observable/of';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { mockTripApiResponse, mockDatesRange } from 'mocks/tests/data-mock';

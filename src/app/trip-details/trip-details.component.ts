@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Trip } from 'src/app/shared/models/Trip';
+import { Trip } from 'src/app/shared/models/trip.interface';
 import { Observable } from 'rxjs/internal/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { CurrentTripProviderService } from './current-trip-provider.service';

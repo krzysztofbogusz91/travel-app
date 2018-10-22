@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TripService } from 'src/app/trip-details/trip.service';
-import { TripDateRange } from '../shared/models/TripDateRange';
-import { Trip } from '../shared/models/Trip';
+import { TripDateRange } from '../shared/models/trip-date-range.interface';
+import { Trip } from '../shared/models/trip.interface';
 
 @Component({
   selector: 'app-dashboard',

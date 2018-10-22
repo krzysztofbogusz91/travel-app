@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-import { TripDateRange } from '../../shared/models/TripDateRange';
+import { TripDateRange } from '../../shared/models/trip-date-range.interface';
 
 @Component({
   selector: 'app-date-picker',

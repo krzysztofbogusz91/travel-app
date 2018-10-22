@@ -1,5 +1,5 @@
-import { TripDateRange } from 'src/app/shared/models/TripDateRange';
-import { Trip } from 'src/app/shared/models/Trip';
+import { TripDateRange } from 'src/app/shared/models/trip-date-range.interface';
+import { Trip } from 'src/app/shared/models/trip.interface';
 
 export const mockTripApiResponse: Trip[] = [
   {

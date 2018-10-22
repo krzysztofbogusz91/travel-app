@@ -2,9 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable, of, combineLatest } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
-import { Trip } from 'src/app/shared/models/Trip';
+import { Trip } from 'src/app/shared/models/trip.interface';
 import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
 import { CurrentTripProviderService } from 'src/app/trip-details/current-trip-provider.service';
+import { TravelFormTemplate } from 'src/app/shared/models/travel-form-template.interface';
 
 @Component({
   selector: 'app-trip-form',
@@ -13,7 +14,7 @@ import { CurrentTripProviderService } from 'src/app/trip-details/current-trip-pr
 })
 export class TripFormComponent implements OnInit {
   @Output()
-  travelRequest = new EventEmitter();
+  travelRequest: EventEmitter<TravelFormTemplate>;
   trip$: Observable<Trip>;
   travelForm$: Observable<FormGroup>;
   travelFormTemplate: FormGroup;
@@ -25,6 +26,7 @@ export class TripFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.travelRequest = new EventEmitter();
     this.trip$ = this.currentTripProviderService.getCurrentTrip();
     this.travelForm$ = this.updateFormWithTrip(this.trip$);
   }

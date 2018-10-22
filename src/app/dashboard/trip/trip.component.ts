@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Trip } from '../../shared/models/Trip';
+import { Trip } from '../../shared/models/trip.interface';
 
 @Component({
   selector: 'app-trip',

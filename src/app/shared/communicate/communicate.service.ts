@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CommunicateState } from 'src/app/shared/models/CommunicateState.interface';
+import { CommunicateState } from 'src/app/shared/models/communicate-state.interface';
 
 @Injectable({
   providedIn: 'root'
