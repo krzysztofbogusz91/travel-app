@@ -9,7 +9,7 @@ export const mockTripApiResponse: Trip[] = [
     city: 'Puckett',
     price: '2000.00$$',
     startDate: '20 Dec 2018',
-    endDate: '28 Dec 2018',
+    endDate: '30 Dec 2018',
     image:
       'https://images.pexels.com/photos/472309/pexels-photo-472309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
   },
@@ -34,10 +34,30 @@ export const mockTripApiResponse: Trip[] = [
     endDate: '28 Nov 2018',
     image:
       'https://images.pexels.com/photos/417322/pexels-photo-417322.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  },
+  {
+    id: '3',
+    name: 'Blugaria thix',
+    country: 'Blugaria',
+    city: 'Sofia',
+    price: '2000.00$$',
+    startDate: '1 Jan 2019',
+    endDate: '28 Jan 2019',
+    image:
+      'https://images.pexels.com/photos/417322/pexels-photo-417322.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
   }
 ];
 
 export const mockDatesRange: TripDateRange = {
-  startDate: new Date(2018, 11, 17, 3, 24, 0),
-  endDate: new Date(2018, 12, 17, 3, 24, 0)
+  startDate: new Date(2018, 10, 17, 3, 24, 0),
+  endDate: new Date(2018, 10, 30, 3, 24, 0)
+};
+
+export const mockDatesRangeForAllTrips: TripDateRange = {
+  startDate: new Date('1 Jan 2016'),
+  endDate: new Date('1 Jan 2020')
+};
+export const mockDatesRangeForNoTrips: TripDateRange = {
+  startDate: new Date('1 Jan 2022'),
+  endDate: new Date('1 Jan 2022')
 };

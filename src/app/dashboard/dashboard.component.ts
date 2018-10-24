@@ -20,7 +20,8 @@ export class DashboardComponent implements OnInit {
     this.trips$ = this.tripService.getTrips();
   }
 
-  onDatesChange($event): void {
+  onDatesChange($event: TripDateRange): void {
     this.datesRange = $event;
+    console.log(typeof this.datesRange.startDate);
   }
 }

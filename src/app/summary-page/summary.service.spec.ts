@@ -27,8 +27,8 @@ describe('SummaryService', () => {
   });
 
   it('should allow to receive form summary', done => {
-    const form = new FormGroup({ first: new FormControl('msg') });
-    service.summary$ = of(form);
+    const form = null;
+    service.summary$ = of(null);
     service.summary$.subscribe(stream => {
       expect(stream).toEqual(form);
       done();
