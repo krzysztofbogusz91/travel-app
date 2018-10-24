@@ -4,7 +4,7 @@ import { TripFormService } from './trip-form.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { formMock } from 'mocks/tests/mocks';
+import { formMock } from 'src/mocks/tests/mocks';
 import { TravelFormTemplate } from 'src/app/shared/models/travel-form-template.interface';
 
 describe('TripFormService', () => {

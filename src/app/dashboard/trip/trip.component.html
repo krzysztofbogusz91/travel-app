@@ -4,7 +4,7 @@
     <h5 class="card-title">{{trip.name}}</h5>
     <p class="card-text">Town: {{trip.city}}</p>
     <p class="card-text">Price: {{trip.price}}</p>
-    <p class="card-text">From: {{trip.startDate}} - To: {{trip.endDate}}</p>
+    <p class="card-text">From: {{trip.startDate | date: 'mediumDate' }} - To: {{trip.endDate | date: 'mediumDate'}}</p>
 
     <a [routerLink]="['/trip', trip.id]" class="btn btn-primary">Check it out!</a>
   </div>

@@ -6,8 +6,8 @@ import { of } from 'rxjs';
 import { TripFormComponent } from './trip-form.component';
 import { CurrentTripProviderService } from 'src/app/trip-details/current-trip-provider.service';
 import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
-import { MockTripFormService } from 'mocks/tests/mock-services';
-import { mockTrips } from 'mocks/tests/data-mock';
+import { MockTripFormService } from 'src/mocks/tests/mock-services';
+import { mockTrips } from 'src/mocks/tests/data-mock';
 
 describe('TripFormComponent', () => {
   let component: TripFormComponent;

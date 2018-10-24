@@ -9,7 +9,7 @@ import { DatesFilterProviderService } from './dates-filter-provider.service';
 import { Trip } from '../shared/models/trip.interface';
 import { of } from 'rxjs/internal/observable/of';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { mockTrips, mockDatesRange } from 'mocks/tests/data-mock';
+import { mockTrips, mockDatesRange } from 'src/mocks/tests/data-mock';
 import { TripComponent } from './trip/trip.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';

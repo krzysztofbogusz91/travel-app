@@ -14,7 +14,6 @@ export class TripService {
   getTrips(): Observable<Trip[]> {
     return this.http.get<Trip[]>(`${environment.tripsURL}trips`).pipe(
       map(this.transformToTrip),
-      tap(console.log),
       shareReplay(1)
     );
   }

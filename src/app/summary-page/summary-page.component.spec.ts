@@ -2,9 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SummaryPageComponent } from './summary-page.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SummaryService } from 'src/app/summary-page/summary.service';
-import { MockSummaryService } from 'mocks/tests/mock-services';
+import { MockSummaryService } from 'src/mocks/tests/mock-services';
 import { of } from 'rxjs';
-import { FormGroup, FormControl } from '@angular/forms';
 
 describe('SummaryPageComponent', () => {
   let component: SummaryPageComponent;

@@ -22,6 +22,5 @@ export class DashboardComponent implements OnInit {
 
   onDatesChange($event: TripDateRange): void {
     this.datesRange = $event;
-    console.log(typeof this.datesRange.startDate);
   }
 }

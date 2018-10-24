@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { mockTrips, mockServerResponse } from 'mocks/tests/data-mock';
+import { mockTrips, mockServerResponse } from 'src/mocks/tests/data-mock';
 
 import { environment } from '../../environments/environment';
 import { HttpErrorResponse } from '@angular/common/http';

@@ -6,7 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeModule } from './home/home.module';
 import { HttpStatusService } from 'src/app/core/http/http-status.service';
-import { MockStatusService } from 'mocks/tests/mock-services';
+import { MockStatusService } from 'src/mocks/tests/mock-services';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

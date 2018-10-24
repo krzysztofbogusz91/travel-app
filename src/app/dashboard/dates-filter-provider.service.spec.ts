@@ -1,7 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
 import { DatesFilterProviderService } from './dates-filter-provider.service';
-import { mockDatesRange, mockTrips, mockDatesRangeForAllTrips, mockDatesRangeForNoTrips } from 'mocks/tests/data-mock';
+import {
+  mockDatesRange,
+  mockTrips,
+  mockDatesRangeForAllTrips,
+  mockDatesRangeForNoTrips
+} from 'src/mocks/tests/data-mock';
 import { of } from 'rxjs';
 
 describe('DashboardService', () => {

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TripComponent } from './trip.component';
-import { mockTrips } from 'mocks/tests/data-mock';
+import { mockTrips } from 'src/mocks/tests/data-mock';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TripComponent', () => {

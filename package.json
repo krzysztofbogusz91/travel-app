@@ -8,7 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "e2e": "ng e2e",
-    "mock:server": "json-server --watch mocks/data.json",
+    "mock:server": "json-server --watch src/mocks/data.json",
     "format:fix": "pretty-quick --staged",
     "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "precommit": "run-s format:fix lint",
