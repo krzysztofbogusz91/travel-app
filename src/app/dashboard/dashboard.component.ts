@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { TripService } from 'src/app/trip-details/trip.service';
 import { TripDateRange } from '../shared/models/trip-date-range.interface';
 import { Trip } from '../shared/models/trip.interface';
-import { filter } from 'rxjs/operators';
 import { DatesFilterProviderService } from 'src/app/dashboard/dates-filter-provider.service';
 
 @Component({

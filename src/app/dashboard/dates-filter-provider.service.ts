@@ -21,9 +21,9 @@ export class DatesFilterProviderService {
     this.dateRange$ = this._dateRange$.asObservable();
   }
 
-  filter(stream$) {
+  filter(stream$: Observable<Trip[]>): Observable<Trip[]> {
     return combineLatest([stream$, this.dateRange$]).pipe(
-      map(combined => this.checkIfDateFitsRange(combined[0], combined[1]))
+      map(([trip, range]: [Trip[], TripDateRange]) => this.checkIfDateFitsRange(trip, range))
     );
   }
 

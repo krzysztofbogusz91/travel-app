@@ -1,9 +1,11 @@
 <div class="row mt-4 mr-4 flex justify-content-end">
   <div class="col-xs-12 col-12 col-md-4 form-group ">
-    <input class="form-control" [bsConfig]="bsConfig" #drp="bsDaterangepicker" bsDaterangepicker [(ngModel)]="rangeDates"
-      (change)="emitDateRangeToDashboard()">
+    <input class="form-control" [bsConfig]="bsConfig" #drp="bsDaterangepicker" bsDaterangepicker [(ngModel)]="rangeDates">
   </div>
   <div class="col-xs-12 col-12 col-md-3 form-group">
     <button class="btn btn-primary" (click)="drp.toggle()" [attr.aria-expanded]="drp.isOpen">Set Dates Range </button>
+  </div>
+  <div class="col-xs-12 col-12 col-md-3 form-group">
+    <button class="btn btn-primary" (click)="emitDateRangeToDashboard()"> Aply filter </button>
   </div>
 </div>

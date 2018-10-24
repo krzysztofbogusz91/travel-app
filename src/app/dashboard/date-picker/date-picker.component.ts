@@ -20,15 +20,16 @@ export class DatePickerComponent implements OnInit {
   constructor() {
     this.endDate.setDate(this.endDate.getDate() + 60);
     this.rangeDates = [this.startDate, this.endDate];
-    this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
+    this.bsConfig = { containerClass: this.colorTheme };
   }
 
-  ngOnInit(): void {
-    this.emitDateRangeToDashboard();
-  }
+  ngOnInit(): void {}
 
   emitDateRangeToDashboard(): void {
-    const dateRange = Object.assign({}, { startDate: this.rangeDates[0], endDate: this.rangeDates[1] });
+    const dateRange = {
+      startDate: this.rangeDates[0] ? this.rangeDates[0] : new Date(),
+      endDate: this.rangeDates[1] ? this.rangeDates[1] : new Date()
+    };
     this.rangeEmitter.emit(dateRange);
   }
 }
