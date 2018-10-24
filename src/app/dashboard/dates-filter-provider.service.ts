@@ -21,14 +21,10 @@ export class DatesFilterProviderService {
     this.dateRange$ = this._dateRange$.asObservable();
   }
 
-  filter(stream$: Observable<Trip[]>) {
+  filter(stream$) {
     return combineLatest([stream$, this.dateRange$]).pipe(
-      map(([trips, range]) => this.checkIfDateFitsRange(trips, range))
+      map(combined => this.checkIfDateFitsRange(combined[0], combined[1]))
     );
-  }
-
-  fil(stream, stream2) {
-    return combineLatest(stream, stream2);
   }
 
   checkIfDateFitsRange(trips: Trip[], range: TripDateRange): Trip[] {

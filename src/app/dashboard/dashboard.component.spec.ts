@@ -13,12 +13,12 @@ import { mockTrips, mockDatesRange } from 'src/mocks/tests/data-mock';
 import { TripComponent } from './trip/trip.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TripService } from 'src/app/trip-details/trip.service';
 
 class MockDashboardService {
-  trips: Trip[] = mockTrips;
-
-  getTrips() {
-    return of(this.trips);
+  updateDateRange() {}
+  filter() {
+    return of([]);
   }
 }
 
@@ -31,7 +31,7 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       imports: [FormsModule, RouterTestingModule, HttpClientTestingModule, SharedModule, BsDatepickerModule.forRoot()],
       declarations: [DashboardComponent, TripComponent, DatePickerComponent],
-      providers: [{ provide: DatesFilterProviderService, useClass: MockDashboardService }]
+      providers: [TripService, { provide: DatesFilterProviderService, useClass: MockDashboardService }]
     }).compileComponents();
   }));
 
@@ -47,6 +47,7 @@ describe('DashboardComponent', () => {
   });
 
   it('should have set component datesRange property', () => {
+    spyOn(dashboardService, 'updateDateRange');
     component.onDatesChange(mockDatesRange);
     expect(component.datesRange).toEqual(mockDatesRange);
   });

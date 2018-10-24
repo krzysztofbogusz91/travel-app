@@ -9,7 +9,7 @@ import {
 } from 'src/mocks/tests/data-mock';
 import { of } from 'rxjs';
 
-fdescribe('DashboardService', () => {
+describe('DashboardService', () => {
   let service: DatesFilterProviderService;
   beforeEach(() => {
     TestBed.configureTestingModule({
