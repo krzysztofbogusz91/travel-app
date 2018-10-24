@@ -5,6 +5,6 @@ export interface Trip {
   country: string;
   image: string;
   price: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
 }

@@ -7,7 +7,7 @@ import { TripFormComponent } from './trip-form.component';
 import { CurrentTripProviderService } from 'src/app/trip-details/current-trip-provider.service';
 import { TripFormService } from 'src/app/trip-details/trip-form/trip-form.service';
 import { MockTripFormService } from 'mocks/tests/mock-services';
-import { mockTripApiResponse } from 'mocks/tests/data-mock';
+import { mockTrips } from 'mocks/tests/data-mock';
 
 describe('TripFormComponent', () => {
   let component: TripFormComponent;
@@ -27,7 +27,7 @@ describe('TripFormComponent', () => {
     component = fixture.componentInstance;
     tripFormService = TestBed.get(TripFormService);
     fixture.detectChanges();
-    component.trip$ = of(mockTripApiResponse[1]);
+    component.trip$ = of(mockTrips[1]);
   });
 
   it('should create', () => {
@@ -96,18 +96,18 @@ describe('TripFormComponent', () => {
   });
 
   it('should update total price when upgrated', done => {
-    component.createForm(mockTripApiResponse[1]).subscribe(template => {
+    component.createForm(mockTrips[1]).subscribe(template => {
       template.value.tripDetails.upgrade = true;
-      component.updateTripPrice(mockTripApiResponse[1].price);
+      component.updateTripPrice(mockTrips[1].price);
       expect(template.value.tripDetails.price).toEqual('2200$');
       done();
     });
   });
 
   it('should not update total price when upgrated is unmarked', done => {
-    component.createForm(mockTripApiResponse[1]).subscribe(template => {
+    component.createForm(mockTrips[1]).subscribe(template => {
       template.value.tripDetails.upgrade = false;
-      component.updateTripPrice(mockTripApiResponse[1].price);
+      component.updateTripPrice(mockTrips[1].price);
       expect(template.value.tripDetails.price).toEqual('2000$');
       done();
     });
@@ -116,8 +116,8 @@ describe('TripFormComponent', () => {
   it('should update form with trip details', done => {
     component.travelForm$ = component.updateFormWithTrip(component.trip$);
     component.travelForm$.subscribe(form => {
-      expect(form.value.tripDetails.tripName).toEqual(mockTripApiResponse[1].name);
-      expect(form.value.tripDetails.price).toEqual(mockTripApiResponse[1].price);
+      expect(form.value.tripDetails.tripName).toEqual(mockTrips[1].name);
+      expect(form.value.tripDetails.price).toEqual(mockTrips[1].price);
       done();
     });
   });

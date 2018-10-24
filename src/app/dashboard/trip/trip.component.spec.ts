@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TripComponent } from './trip.component';
-import { mockTripApiResponse } from 'mocks/tests/data-mock';
+import { mockTrips } from 'mocks/tests/data-mock';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TripComponent', () => {
@@ -18,7 +18,7 @@ describe('TripComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TripComponent);
     component = fixture.componentInstance;
-    component.trip = mockTripApiResponse[1];
+    component.trip = mockTrips[1];
     fixture.detectChanges();
   });
 

@@ -1,21 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DashboardService } from './dashboard.service';
-import {
-  mockDatesRange,
-  mockTripApiResponse,
-  mockDatesRangeForAllTrips,
-  mockDatesRangeForNoTrips
-} from 'mocks/tests/data-mock';
+import { DatesFilterProviderService } from './dates-filter-provider.service';
+import { mockDatesRange, mockTrips, mockDatesRangeForAllTrips, mockDatesRangeForNoTrips } from 'mocks/tests/data-mock';
 import { of } from 'rxjs';
 
 describe('DashboardService', () => {
-  let service: DashboardService;
+  let service: DatesFilterProviderService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DashboardService]
+      providers: [DatesFilterProviderService]
     });
-    service = TestBed.get(DashboardService);
+    service = TestBed.get(DatesFilterProviderService);
   });
 
   it('should be created', () => {
@@ -24,8 +19,8 @@ describe('DashboardService', () => {
 
   it('should filter trip list by dates', done => {
     const dataRange = mockDatesRange;
-    const stream = of(mockTripApiResponse);
-    const shouldReturnName = mockTripApiResponse[2].name;
+    const stream = of(mockTrips);
+    const shouldReturnName = mockTrips[2].name;
     const filtered = service.filter(dataRange, stream);
 
     filtered.subscribe(trips => {
@@ -37,19 +32,19 @@ describe('DashboardService', () => {
 
   it('should return all trips that fits in the range', done => {
     const dataRange = mockDatesRangeForAllTrips;
-    const stream = of(mockTripApiResponse);
+    const stream = of(mockTrips);
 
     const filtered = service.filter(dataRange, stream);
 
     filtered.subscribe(trips => {
-      expect(trips.length).toEqual(mockTripApiResponse.length);
+      expect(trips.length).toEqual(mockTrips.length);
       done();
     });
   });
 
   it('should return empty arr', done => {
     const dataRange = mockDatesRangeForNoTrips;
-    const stream = of(mockTripApiResponse);
+    const stream = of(mockTrips);
 
     const filtered = service.filter(dataRange, stream);
 

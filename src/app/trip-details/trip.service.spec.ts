@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { mockTripApiResponse } from 'mocks/tests/data-mock';
+import { mockTrips, mockServerResponse } from 'mocks/tests/data-mock';
 
 import { environment } from '../../environments/environment';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -30,8 +30,6 @@ describe('TripService', () => {
   });
 
   it('should return list of trips', () => {
-    const mockTrips = mockTripApiResponse;
-
     service.getTrips().subscribe(trips => {
       expect(trips).toEqual(mockTrips);
     });
@@ -40,7 +38,7 @@ describe('TripService', () => {
 
     expect(req.request.method).toEqual('GET');
 
-    req.flush(mockTrips);
+    req.flush(mockServerResponse);
 
     httpTestingController.verify();
   });
@@ -66,8 +64,6 @@ describe('TripService', () => {
   });
 
   it('should return trip by its id', () => {
-    const mockTrips = mockTripApiResponse;
-
     service.getTrip('1').subscribe(trip => {
       expect(trip).toEqual(mockTrips[0]);
     });
@@ -76,14 +72,12 @@ describe('TripService', () => {
 
     expect(req.request.method).toEqual('GET');
 
-    req.flush(mockTrips);
+    req.flush(mockServerResponse);
 
     httpTestingController.verify();
   });
 
   it('should return empty table when trip id is wrong', () => {
-    const mockTrips = mockTripApiResponse;
-
     service.getTrip('2023').subscribe(trip => {
       expect(trip).toBeUndefined();
     });
@@ -92,7 +86,7 @@ describe('TripService', () => {
 
     expect(req.request.method).toEqual('GET');
 
-    req.flush(mockTrips);
+    req.flush(mockServerResponse);
 
     httpTestingController.verify();
   });

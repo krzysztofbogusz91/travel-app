@@ -7,7 +7,7 @@ import { map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardService {
+export class DatesFilterProviderService {
   constructor() {}
 
   filter(dataRange: TripDateRange, stream: Observable<Trip[]>): Observable<Trip[]> {
@@ -16,12 +16,12 @@ export class DashboardService {
 
   checkIfDateFitsRange(trips: Trip[], range: TripDateRange): Trip[] {
     return trips.filter(trip => {
-      const start = range.startDate.getTime();
-      const end = range.endDate.getTime();
+      const startRange = range.startDate.getTime();
+      const endRange = range.endDate.getTime();
       const tripStart = new Date(trip.startDate).getTime();
       const tripEnd = new Date(trip.endDate).getTime();
 
-      if (tripStart >= start && tripEnd <= end) {
+      if (tripStart >= startRange && tripEnd <= endRange) {
         return trip;
       }
     });
