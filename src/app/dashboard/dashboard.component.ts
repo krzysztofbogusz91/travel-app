@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { TripService } from 'src/app/trip-details/trip.service';
 import { TripDateRange } from '../shared/models/trip-date-range.interface';
 import { Trip } from '../shared/models/trip.interface';
+import { filter } from 'rxjs/operators';
+import { DatesFilterProviderService } from 'src/app/dashboard/dates-filter-provider.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +16,14 @@ export class DashboardComponent implements OnInit {
 
   trips$: Observable<Trip[]>;
 
-  constructor(private tripService: TripService) {}
+  constructor(private tripService: TripService, private filterService: DatesFilterProviderService) {}
 
   ngOnInit() {
-    this.trips$ = this.tripService.getTrips();
+    this.trips$ = this.filterService.filter(this.tripService.getTrips());
   }
 
   onDatesChange($event: TripDateRange): void {
     this.datesRange = $event;
+    this.filterService.updateDateRange(this.datesRange);
   }
 }

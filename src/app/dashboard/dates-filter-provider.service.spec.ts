@@ -9,7 +9,7 @@ import {
 } from 'src/mocks/tests/data-mock';
 import { of } from 'rxjs';
 
-describe('DashboardService', () => {
+fdescribe('DashboardService', () => {
   let service: DatesFilterProviderService;
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -26,7 +26,9 @@ describe('DashboardService', () => {
     const dataRange = mockDatesRange;
     const stream = of(mockTrips);
     const shouldReturnName = mockTrips[2].name;
-    const filtered = service.filter(dataRange, stream);
+
+    service.updateDateRange(dataRange);
+    const filtered = service.filter(stream);
 
     filtered.subscribe(trips => {
       expect(trips.length).toEqual(1);
@@ -39,7 +41,8 @@ describe('DashboardService', () => {
     const dataRange = mockDatesRangeForAllTrips;
     const stream = of(mockTrips);
 
-    const filtered = service.filter(dataRange, stream);
+    service.updateDateRange(dataRange);
+    const filtered = service.filter(stream);
 
     filtered.subscribe(trips => {
       expect(trips.length).toEqual(mockTrips.length);
@@ -51,7 +54,8 @@ describe('DashboardService', () => {
     const dataRange = mockDatesRangeForNoTrips;
     const stream = of(mockTrips);
 
-    const filtered = service.filter(dataRange, stream);
+    service.updateDateRange(dataRange);
+    const filtered = service.filter(stream);
 
     filtered.subscribe(trips => {
       expect(trips.length).toEqual(0);

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { TripDateRange } from 'src/app/shared/models/trip-date-range.interface';
 import { Trip } from 'src/app/shared/models/trip.interface';
 import { map, tap } from 'rxjs/operators';
@@ -8,10 +8,27 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DatesFilterProviderService {
-  constructor() {}
+  private _dateRange$: BehaviorSubject<TripDateRange>;
+  public dateRange$: Observable<TripDateRange>;
 
-  filter(dataRange: TripDateRange, stream: Observable<Trip[]>): Observable<Trip[]> {
-    return stream.pipe(map(trips => this.checkIfDateFitsRange(trips, dataRange)));
+  startRange: TripDateRange = {
+    startDate: new Date('1 Jan 1999'),
+    endDate: new Date('1 Jan 2020')
+  };
+
+  constructor() {
+    this._dateRange$ = new BehaviorSubject<TripDateRange>(this.startRange);
+    this.dateRange$ = this._dateRange$.asObservable();
+  }
+
+  filter(stream$: Observable<Trip[]>) {
+    return combineLatest([stream$, this.dateRange$]).pipe(
+      map(([trips, range]) => this.checkIfDateFitsRange(trips, range))
+    );
+  }
+
+  fil(stream, stream2) {
+    return combineLatest(stream, stream2);
   }
 
   checkIfDateFitsRange(trips: Trip[], range: TripDateRange): Trip[] {
@@ -25,5 +42,11 @@ export class DatesFilterProviderService {
         return trip;
       }
     });
+  }
+
+  updateDateRange(dates) {
+    if (dates) {
+      this._dateRange$.next(dates);
+    }
   }
 }

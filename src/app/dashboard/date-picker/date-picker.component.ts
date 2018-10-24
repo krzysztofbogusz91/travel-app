@@ -18,7 +18,7 @@ export class DatePickerComponent implements OnInit {
   rangeEmitter = new EventEmitter<TripDateRange>();
 
   constructor() {
-    this.endDate.setDate(this.endDate.getDate() + 7);
+    this.endDate.setDate(this.endDate.getDate() + 60);
     this.rangeDates = [this.startDate, this.endDate];
     this.bsConfig = Object.assign({}, { containerClass: this.colorTheme });
   }
