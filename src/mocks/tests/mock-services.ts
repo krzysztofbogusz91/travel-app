@@ -17,3 +17,10 @@ export class MockStatusService {
     return false;
   }
 }
+
+export class MockDashboardService {
+  updateDateRange() {}
+  filter() {
+    return of([]);
+  }
+}

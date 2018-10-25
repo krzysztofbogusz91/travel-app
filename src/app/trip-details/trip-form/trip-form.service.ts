@@ -8,7 +8,7 @@ import { TravelFormTemplate } from 'src/app/shared/models/travel-form-template.i
   providedIn: 'root'
 })
 export class TripFormService {
-  _form$: BehaviorSubject<TravelFormTemplate | boolean>;
+  private _form$: BehaviorSubject<TravelFormTemplate | boolean>;
   form$: Observable<TravelFormTemplate | boolean>;
 
   constructor(private router: Router) {

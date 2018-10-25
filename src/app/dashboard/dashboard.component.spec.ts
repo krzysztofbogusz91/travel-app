@@ -14,13 +14,7 @@ import { TripComponent } from './trip/trip.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TripService } from 'src/app/trip-details/trip.service';
-
-class MockDashboardService {
-  updateDateRange() {}
-  filter() {
-    return of([]);
-  }
-}
+import { MockDashboardService } from 'src/mocks/tests/mock-services';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
